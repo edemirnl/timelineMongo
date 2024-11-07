@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment Section</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Post a Message</h1>
+  <form action="/add-comment" method="POST">
+    <input type="text" name="username" placeholder="Your name" required />
+    <textarea name="message" placeholder="Your message" required></textarea>
+    <button type="submit">Post a message</button>
+  </form>
+
+  <h2>Messages</h2>
+  <div>
+    <% comments.forEach(comment => { %>
+      <div>
+        <p><strong><%= comment.username %></strong> - <%= comment.createdAt.toDateString() %></p>
+        <p><%= comment.message %></p>
+      </div>
+      <hr />
+    <% }) %>
+  </div>
+</body>
+</html>
